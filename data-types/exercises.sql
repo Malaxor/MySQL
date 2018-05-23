@@ -64,8 +64,3 @@ SELECT DATE_FORMAT(NOW(), '%M %D at %h:%i');
 
 CREATE TABLE tweets (content VARCHAR(140), username VARCHAR(20), tweeted_at TIMESTAMP DEFAULT NOW());
 INSERT INTO tweets(content, username) VALUES('this is my first tweet', 'phil');
-
--- =============================================================================
-
-
-
