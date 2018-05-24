@@ -43,7 +43,7 @@ SELECT * FROM customers, orders WHERE customers.id = orders.customer_id;
 -- Explicit Inner Join (Recommended!)
 SELECT * FROM customers JOIN orders ON customers.id = orders.customer_id;
 
--- LEFT JOINS
+-- LEFT JOIN
 SELECT * FROM customers
 LEFT JOIN orders ON customers.id = orders.customer_id;
 
@@ -64,7 +64,7 @@ LEFT JOIN orders
 GROUP BY customers.id
 ORDER BY total_spent DESC;
 
--- RIGHT JOINS
+-- RIGHT JOIN
 SELECT * FROM customers
 RIGHT JOIN orders ON customers.id = orders.customer_id;
 
