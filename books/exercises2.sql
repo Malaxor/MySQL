@@ -30,7 +30,7 @@ SELECT title, released_year, stock_quantity FROM books ORDER BY stock_quantity L
 
 -- ====================================================================================
 
--- 6) Print title and author_lname, sorter first by author, then by title
+-- 6) Print title and author_lname, sorted first by author, then by title
 
 SELECT title, author_lname FROM books ORDER BY 2, 1;
 

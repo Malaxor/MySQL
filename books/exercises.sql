@@ -27,7 +27,7 @@ SELECT author_lname AS 'forward', REVERSE(author_lname) AS 'backward' FROM books
 
 -- 5) Print out authors' full names
 
-SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) FROM books;
+SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) AS 'author' FROM books;
 
 -- ========================================================================================
 
