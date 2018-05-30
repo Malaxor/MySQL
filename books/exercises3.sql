@@ -7,13 +7,13 @@ SELECT COUNT(*) FROM books;
 
 -- 2) Print out how many books were released each year
 
-SELECT released_year, COUNT(*) FROM books GROUP BY released_year;
+SELECT released_year, COUNT(*) AS 'Count' FROM books GROUP BY released_year;
 
 -- ========================================================================================
 
 -- 3) Print out the total number of books in stock
 
-SELECT Sum(stock_quantity) FROM books;
+SELECT Sum(stock_quantity) AS 'Total Books in Stock' FROM books;
 
 -- ========================================================================================
 
