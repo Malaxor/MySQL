@@ -21,7 +21,6 @@ FROM users
 LEFT JOIN photos ON users.id = photos.user_id
 WHERE photos.id is NULL;
 
-
 -- ===============================================================================
 
 -- 4) Which is the most liked photo (find user)?
@@ -33,13 +32,11 @@ INNER JOIN users ON photos.user_id = users.id
 GROUP BY photos.id
 ORDER BY total DESC LIMIT 1;
 
-
 -- ===============================================================================
 
 -- 5) Calculate the average number of photos posted per user.
 
 SELECT (SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users) AS 'AVG';
-
 
 -- ===============================================================================
 
