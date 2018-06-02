@@ -1,10 +1,14 @@
 
-const express = require('express');
-const mysql   = require('mysql');
-const faker   = require('faker');
-const app 	  = express();
+// DEPENDENCIES 
+const express    = require('express');
+const mysql      = require('mysql');
+const faker      = require('faker');
+const bodyParser = require('body-parser');
+const app 	     = express();
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(3000, () =>  {
 	console.log('server running on 8000');
@@ -24,7 +28,7 @@ connection.connect( (err) => {
 });
 
 // ROUTES
-//=========================================================================================
+//===============================================================================
 
 app.get('/', (req, res) => {
 
@@ -34,32 +38,20 @@ app.get('/', (req, res) => {
 
 		if(err) throw err;
 		const count = results[0].count;
-		// res.send(`We have ${count} users in our database`);
-		res.render('home');
+		res.render('home', {count: count});
 	});
 });
 
-//===============================================================================
-// INSERTING FAKE DATA 
+app.post('/register', (req, res) => {
 
-// const data =[];
+	const person = {
+		email: req.body.email
+	};
 
-// for(let i = 0; i < 500; i++) {
+	connection.query('INSERT INTO users SET ?', person, (err, result) => {
 
-// 	data.push([
+		if(err) throw err;
+		res.redirect('/');
+	});	
+});
 
-// 		faker.internet.email(),
-// 		faker.date.past()
-// 	]);
-// }
-
-// const q = 'INSERT INTO users (email, created_at) VALUES ?';
-
-// connection.query(q, [data], (err, res) => {
-
-// 	if(err) throw err;
-// 	console.log(res);
-// });
-
-// ROUTES
-//=========================================================================================
