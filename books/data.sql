@@ -1,6 +1,6 @@
 
-CREATE TABLE books 
-(
+CREATE TABLE books (
+	
 	book_id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(100),
 	author_fname VARCHAR(100),
